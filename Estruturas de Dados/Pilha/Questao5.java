@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Questao5{
     public static void main(String[] args){
-        Scanner str = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Digite a expressão: ");
-        String expressao = str.nextLine();
+        String expressao = input.nextLine();
 
         //String expressao = "{2 + [(16 + 2 ∧ 3) - 4)} * 3"; //para teste caso necessario
         Stack<Character> s = new Stack<Character>();
@@ -27,21 +27,21 @@ public class Questao5{
                 }
 
                 if(s.isEmpty()){
-                    System.out.printf("Invalido\n\n");
+                    System.out.printf("Expressao Invalida\n\n");
                     System.exit(-1);
                 }else if(var.compareTo(s.stackTop()) == 0){
                     s.pop();
                 }else{
-                    System.out.printf("Invalido\n\n");
+                    System.out.printf("Expressao Invalida\n\n");
                     System.exit(-1);
                 }
             }
         }
 
         if(s.isEmpty()){
-            System.out.printf("Valido\n\n");
+            System.out.printf("Expressao Valida\n\n");
         }else{
-            System.out.printf("Invalido\n\n");
+            System.out.printf("Expressao Invalida\n\n");
         }
     }
 }
