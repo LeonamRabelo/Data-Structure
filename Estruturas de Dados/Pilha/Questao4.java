@@ -5,14 +5,12 @@ import Estruturas.*;
 
 public class Questao4{
     public static void main(String[]args){
-
         //montar as 52 cartas do baralho (2 a 10, J, Q, K, A)
         String[] baralho = new String[]{"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K","A",
                                         "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K","A",
                                         "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K","A",
                                         "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K","A"};
 
-            
             Stack<String> stack1 = new Stack<String>();
             Stack<String> stack2 = new Stack<String>();
             Stack<String> stack3 = new Stack<String>();
@@ -23,7 +21,7 @@ public class Questao4{
             for(int i = 0; i<52; i++){
                 System.out.print(baralho[i] + ", ");
                 if(i==51){
-                    System.out.println();
+                    System.out.println("\n");
                 }
             }
 
@@ -52,41 +50,38 @@ public class Questao4{
         }
     }
 
-    //juntar as 3 pilhas em uma usando Merge
+    //juntar as 3 pilhas em uma usando MergeSort
     public static void Merge(Stack<String> s1, Stack<String> s2, Stack<String> s3, Stack<String> s4){
         Random numRandom = new Random();
-        int x; 
+        int sorteio; 
 
         while(s4.getSizeList() != 52){
-            x = numRandom.nextInt(3);
+            sorteio = numRandom.nextInt(3); //0 para pilha1; 1 para pilha2; 2 para pilha3
 
-            switch (x) {
+            switch (sorteio){
                 case 0:
                     if(s1.getSizeList() != 0)    
                         s4.push(s1.pop());
                     else
-                        x = 1;
-
+                        sorteio = 1;
                     break;
                 
                 case 1:
                     if(s2.getSizeList() != 0)    
                         s4.push(s2.pop());
                     else
-                        x = 2;
-
+                        sorteio = 2;
                     break;
 
                 case 2:
                     if(s3.getSizeList() != 0)    
                         s4.push(s3.pop());
                     else
-                        x = 0;
-
+                        sorteio = 0;
                     break;
                 
                 default:
-                    System.out.println("Error!!");
+                    System.out.println("Erro!!");
                     break;
             }
         }
