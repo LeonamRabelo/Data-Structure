@@ -43,10 +43,10 @@ public class HeapSort{
         int esquerda = 2*i + 1;
         int direita = 2*i + 2;
         
-        if(esquerda<tamanho && (p[esquerda].getNome().length() > p[raiz].getNome().length())){
+        if(esquerda<tamanho && (p[esquerda].getNome().compareTo(p[raiz].getNome())>0)){
             raiz = esquerda;
         }
-        if(direita < tamanho && (p[direita].getNome().length() > p[raiz].getNome().length())){
+        if(direita < tamanho && (p[direita].getNome().compareTo(p[raiz].getNome())>0)){
             raiz = direita;
         }
         
